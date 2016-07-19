@@ -2,7 +2,7 @@
 import logging
 from random import randint
 from time import sleep
-from selenium import webdriver
+from selenium import webdriver # http://selenium-python.readthedocs.io/installation.html
 from config import username, password, delay
 
 # Init logging
