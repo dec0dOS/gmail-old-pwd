@@ -1,8 +1,9 @@
+import logging
 from random import randint
 from time import sleep
 from selenium import webdriver
 from config import username, password, delay
-import logging
+
 # Init logging
 logging.basicConfig(format='[%(asctime)s] [%(levelname)s] %(message)s',
                     filename='logs.txt', level=logging.INFO)
@@ -25,8 +26,8 @@ def main(username, password, url):
     browser.find_element_by_id("signIn").click()
     logging.info("Successfully logged in")
     sleep(delay + 1)
-    x = 0
-    while x < 100:
+    
+    for x in xrange(100):
         new_password = str(randint(1000000, 9999999)) + "Zz"
         logging.info("New password: {}".format(new_password))
         browser.find_element_by_xpath(
@@ -42,7 +43,6 @@ def main(username, password, url):
         browser.get("https://accounts.google.com/ServiceLogin?service=accountsettings&passive=1209600&osid=1&continue=https://myaccount.google.com/security/signinoptions/password&followup=https://myaccount.google.com/security/signinoptions/password&emr=1&mrp=security&rart=ANgoxcffr2RoEQID0DEcYVPS-AgbMryiK81dcw26wK0uuIwNDR3RU7i-duA7EY5S8B8JttKgUGmvkKFlK9_7fY36QqECnPmgXg&authuser=0")
         browser.find_element_by_id("Passwd").send_keys(new_password)
         browser.find_element_by_id("signIn").click()
-        x = x + 1
         sleep(delay)
 
 if __name__ == '__main__':
