@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import logging
 from random import randint
 from time import sleep
@@ -27,7 +28,7 @@ def main(username, password, url):
     logging.info("Successfully logged in")
     sleep(delay + 1)
     
-    for x in xrange(100):
+    for x in range(100):
         new_password = str(randint(1000000, 9999999)) + "Zz"
         logging.info("New password: {}".format(new_password))
         browser.find_element_by_xpath(
