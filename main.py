@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import logging
+import sys
 from random import randint
 from time import sleep
 from selenium import webdriver # http://selenium-python.readthedocs.io/installation.html
@@ -53,4 +54,5 @@ if __name__ == '__main__':
         logging.error("------------------------------------")
         logging.exception('')
         logging.error("------------------------------------")
+        sys.exit()
     logging.info("------------------------------------")
